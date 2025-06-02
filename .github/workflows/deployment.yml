@@ -14,11 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install AWS CLI
-        run: |
-          sudo apt update
-          sudo apt install -y awscli
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
