@@ -60,9 +60,7 @@ function displayProducts(products) {
   });
 }
 
-loadProducts();
+const worker = new Worker("./js/worker.js");
+worker.postMessage("start");
 
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-  const temp = Math.sqrt(i) * Math.sqrt(i);
-}
+loadProducts();
