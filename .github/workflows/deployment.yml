@@ -23,7 +23,7 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync out/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }} --delete --exclude ".git/*" --exclude ".github/*" --exclude "README.md" --exclude "deployment.yml" --exclude ".gitignore"
 
       - name: Invalidate CloudFront cache
         run: |
