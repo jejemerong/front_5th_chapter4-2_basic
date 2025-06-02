@@ -36,9 +36,10 @@ url: "https://d1xp4u2x1t7k5z.cloudfront.net/"
   images 폴더 내에 jpg 확장자의 이미지를 webp 확장자의 이미지로 변경했을 때,
   LCP 지표가 14.78s에서 9.76s로 감소하며 33.96% 개선되었다.
 
-  | LCP | Largest Contentful Paint | 14.78s | 🔴 |
-
-  | LCP | Largest Contentful Paint | 9.76s | 🔴 |
+  | 전/후 | 메트릭 | 설명 | 측정값 | 상태 | 증감율 |
+  |-----|--------|------|--------|------|----|
+  | 전 | LCP | Largest Contentful Paint | 14.78s | 🔴 | - |
+  | 후 | LCP | Largest Contentful Paint | 9.61s | 🔴 | 33.96% ⬇️ |
 
 ### 폰트 최적화
 
