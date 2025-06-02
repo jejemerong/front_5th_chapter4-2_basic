@@ -3,10 +3,10 @@
 ## 과제 요구사항 만족
 
 - [x] 배포 후 url 제출
-- [ ] 성능 개선 보고서 작성
+- [x] 성능 개선 보고서 작성
 
-- [ ] Lighthouse 점수 이해
-- [ ] Core Web Vital 이해
+- [x] Lighthouse 점수 이해
+- [x] Core Web Vital 이해
 
 ## 과제 셀프회고
 
