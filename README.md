@@ -33,6 +33,43 @@ url: "https://d1xp4u2x1t7k5z.cloudfront.net/"
 
 - **개선 후 향상된 지표**
 
+  images 폴더 내에 jpg 확장자의 이미지를 webp 확장자의 이미지로 변경했을 때,
+  LCP 지표가 14.78s에서 9.76s로 감소하며 33.96% 개선되었다.
+
+  | LCP | Largest Contentful Paint | 14.78s | 🔴 |
+
+  | LCP | Largest Contentful Paint | 9.76s | 🔴 |
+
+### 폰트 최적화
+
+- **개선 이유**
+
+  기본적으로 `<link rel="stylesheet">` 는 폰트 파일이 로딩될 때까지 HTML 렌더링을 중단시킨다.
+  이때, `rel="preload"` + `onload`를 사용하면 비차단 방식으로 폰트를 불러올 수 있기 때문에 렌더링 차단되는 시간을 줄일 수 있다. 그리고 직접 개선하지는 않았지만 Google Fonts URL 자체에 `display=swap` 파라미터가 포함되어 있어 웹폰트가 로딩되기 전까지는 시스템 폰트를 먼저 보여주기 때문에 사용자 경험이 개선된다.
+
+  그리고 noscript 태그를 추가하여 사용자의 브라우저 설정으로 자바스크립트가 꺼져 있는 경우에도 대체 폰트 로딩을 지원하기 때문에 다음과 같이 작성할 수 있다.
+
+- **개선 방법**
+
+  `rel="stylesheet"`을 `rel="preload"`로 수정하고 대체적으로 로딩할 경우를 noscript 태그를 이용하여 설정한다.
+
+  ```html
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap"
+    onload="this.rel='stylesheet'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap"
+    />
+  </noscript>
+  ```
+
+- **개선 후 향상된 지표**
+
 ### 개선 이유
 
 ### 개선 방법
