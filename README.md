@@ -54,6 +54,11 @@ url: "https://d1xp4u2x1t7k5z.cloudfront.net/"
   하지만 원래 Good의 범위에 있던 CLS 지표가 0.011 에서 0.514 로 오히려 성능이 나빠진 것을 확인할 수 있었다.
   index.html의 link 태그에서 loading="lazy"으로 설정했던 속성을 다시 제거했더니 지표가 향상되었다. 왜지?
 
+### 이미지 최적화 - 이미지 크기 조정
+
+- **개선 이유**
+  페이지에서 사용자 화면에 렌더링되는 버전보다 더 큰 이미지를 전송하면 바이트가 낭비되고 페이지 로드 시간이 느려진다.
+
 ### 폰트 최적화
 
 - **개선 이유**
@@ -128,3 +133,52 @@ url: "https://d1xp4u2x1t7k5z.cloudfront.net/"
   | ----- | ------ | ------------------------ | --------- | ---- | ------ |
   | 전    | LCP    | Largest Contentful Paint | 4.13s     | 🔴   | -      |
   | 후    | LCP    | Largest Contentful Paint | **3.20s** | 🟠   | % ⬇️   |
+
+- [ ] 렌더링 차단 리소스 제거하기
+      어떤 것이 렌더링 차단 리소스인가?
+
+### 스크립트 로딩 및 실행 방식 최적화
+
+- **개선 이유**
+  스크립트가 비동기적으로 로드되면 다른 리소스와의 충돌을 줄일 수 있기 때문에 LCP 지표를 개선할 수 있다.
+  DOM에 의존하지 않는 스크립트에 대해서는 async를 붙여서 HTML 문서의 파싱과 동시에 비동기적으로 로드되도록 실행한다.
+
+- **개선 방법**
+  다음과 같이 DOM 요소에 직접적으로 의존하지 않는 GTM 스크립트와 같은 경우에는 비동기적으로 로드하도록 async를 붙여 실행한다.
+  ```js
+    <script async>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PKK35GL5");
+    </script>
+  ```
+
+  그리고 다음과 같이 사용자의 쿠키 사용 동의를 요청하는 배너 스크립트는 DOM에 의존성을 가지기 때문에 defer 속성을 추가해서 HTML 문서의 파싱이 완료된 후에 스크립트가 실행되도록 한다.
+  ```js
+      <script
+        defer
+        type="text/javascript"
+        src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
+        charset="UTF-8"
+      ></script>
+      <script defer type="text/javascript" charset="UTF-8">
+        cookieconsent.run({
+          notice_banner_type: "simple",
+          consent_type: "express",
+          palette: "light",
+          language: "en",
+          page_load_consent_levels: ["strictly-necessary"],
+          notice_banner_reject_button_hide: false,
+          preferences_center_close_button_hide: false,
+          page_refresh_confirmation_buttons: false,
+          website_name: "Performance Course",
+        });
+      </script>
+  ```
