@@ -94,36 +94,32 @@
     </header>
 
     <section class="hero">
-      <picture>
-        <source srcset="images/Hero_Desktop.webp" type="image/webp" />
-        <img
-          class="desktop"
-          src="images/Hero_Desktop.webp"
-          width="2160"
-          height="1005"
-          media="(min-width: 960px)"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/Hero_Mobile.webp" type="image/webp" />
-        <img
-          class="mobile"
-          src="images/Hero_Mobile.webp"
-          width="864"
-          height="864"
-          media="(max-width: 864px)"
-        />
-      </picture>
-      <picture>
-        <source srcset="images/Hero_Tablet.webp" type="image/webp" />
-        <img
-          class="tablet"
-          src="images/Hero_Tablet.webp"
-          width="1440"
-          height="1155"
-          media="(min-width: 864px) and (max-width: 960px)"
-        />
-      </picture>
+      <section class="hero">
+        <picture>
+          <source
+            srcset="images/Hero_Mobile.webp"
+            media="(max-width: 863px)"
+            type="image/webp"
+          />
+          <source
+            srcset="images/Hero_Tablet.webp"
+            media="(min-width: 864px) and (max-width: 960px)"
+            type="image/webp"
+          />
+          <source
+            srcset="images/Hero_Desktop.webp"
+            media="(min-width: 961px)"
+            type="image/webp"
+          />
+          <img
+            src="images/Hero_Desktop.webp"
+            alt="Hero Image"
+            width="1280"
+            height="720"
+            loading="lazy"
+          />
+        </picture>
+      </section>
 
       <div class="hero-content">
         <div class="container">
@@ -152,6 +148,7 @@
                   src="images/vr1.jpg"
                   alt="product: Penom Case"
                   style="aspect-ratio: 1/1; object-fit: cover"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -173,6 +170,7 @@
                   src="images/vr2.jpg"
                   alt="product: Noise Cancelling Headphone"
                   style="aspect-ratio: 1/1; object-fit: cover"
+                  loading="lazy"
                 />
               </picture>
             </div>
@@ -194,6 +192,7 @@
                   src="images/vr3.jpg"
                   alt="product: Canon Digital SLR EOS Rebel T6"
                   style="aspect-ratio: 1/1; object-fit: cover"
+                  loading="lazy"
                 />
               </picture>
             </div>
