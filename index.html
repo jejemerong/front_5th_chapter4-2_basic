@@ -12,18 +12,9 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap"
       onload="this.rel='stylesheet'"
     />
-    <link
-      rel="preload"
-      as="image"
-      href="/images/Hero_Desktop.webp"
-      media="(min-width: 961px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/images/Hero_Mobile.webp"
-      media="(min-width: 961px)"
-    />
+    <link rel="preload" as="image" href="/images/Hero_Desktop.webp" />
+    <link rel="preload" as="image" href="/images/Hero_Tablet.webp" />
+    <link rel="preload" as="image" href="/images/Hero_Mobile.webp" />
     <link rel="stylesheet" href="/css/styles.css" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
 
@@ -102,10 +93,10 @@
         <picture>
           <source srcset="images/Hero_Desktop.webp" type="image/webp" />
           <img
-            alt="Hero_Desktop"
-            media="(min-width: 961px)"
             class="desktop"
             src="images/Hero_Desktop.webp"
+            alt="Hero_Desktop"
+            media="(min-width: 961px)"
             width="1280"
             height="720"
             style="object-fit: cover; aspect-ratio: 16/9"
@@ -120,11 +111,13 @@
             type="image/webp"
           />
           <img
-            alt="Hero_Mobile"
             class="mobile"
-            width="660"
-            height="660"
             src="images/Hero_Mobile.webp"
+            alt="Hero_Mobile"
+            media="(min-width: 480px)"
+            width="560"
+            height="480"
+            style="object-fit: cover; aspect-ratio: 16/9"
             loading="lazy"
             fetchpriority="high"
           />
