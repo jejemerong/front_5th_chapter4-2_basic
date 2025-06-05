@@ -96,28 +96,29 @@
     <section class="hero">
       <section class="hero">
         <picture>
-          <source
-            srcset="images/Hero_Mobile.webp"
-            media="(max-width: 863px)"
-            type="image/webp"
-          />
-          <source
-            srcset="images/Hero_Tablet.webp"
-            media="(min-width: 864px) and (max-width: 960px)"
-            type="image/webp"
-          />
-          <source
-            srcset="images/Hero_Desktop.webp"
-            media="(min-width: 961px)"
-            type="image/webp"
-          />
+          <source srcset="images/Hero_Desktop.webp" type="image/webp" />
           <img
+            media="(min-width: 961px)"
+            class="desktop"
             src="images/Hero_Desktop.webp"
-            alt="Hero Image"
-            width="1280"
-            height="720"
             loading="lazy"
           />
+        </picture>
+        <picture>
+          <source
+            media="(min-width: 864px) and (max-width: 960px)"
+            srcset="images/Hero_Mobile.webp"
+            type="image/webp"
+          />
+          <img class="mobile" src="images/Hero_Mobile.webp" />
+        </picture>
+        <picture>
+          <source
+            media="(max-width: 863px)"
+            srcset="images/Hero_Tablet.webp"
+            type="image/webp"
+          />
+          <img class="tablet" src="images/Hero_Tablet.webp" loading="lazy" />
         </picture>
       </section>
 
