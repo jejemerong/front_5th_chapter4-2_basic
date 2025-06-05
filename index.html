@@ -11,8 +11,30 @@
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700&display=swap"
       onload="this.rel='stylesheet'"
     />
+    <link rel="preload" as="image" href="/images/Hero_Desktop.webp" />
     <link rel="stylesheet" href="/css/styles.css" />
+    <!-- PWA -->
     <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <link
+      rel="icon"
+      href="/icons/icon-192.jpeg"
+      type="image/jpeg"
+      sizes="192x192"
+    />
+    <link rel="apple-touch-icon" href="/icons/icon-512.jpeg" />
+
+    <!-- Service Worker 등록 -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => console.log("SW registered:", reg))
+            .catch((err) => console.error("SW registration failed:", err));
+        });
+      }
+    </script>
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
     <script async>

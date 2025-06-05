@@ -9,7 +9,7 @@ on:
       url:
         description: "URL to run Lighthouse on"
         required: false
-        default: "http://localhost:8080"
+        default: "https://d1xp4u2x1t7k5z.cloudfront.net/"
 
 permissions:
   issues: write
