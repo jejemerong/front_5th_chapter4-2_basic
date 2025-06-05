@@ -60,7 +60,4 @@ function displayProducts(products) {
   });
 }
 
-const worker = new Worker("./js/worker.js");
-worker.postMessage("start");
-
 loadProducts();
