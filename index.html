@@ -12,6 +12,7 @@
       onload="this.rel='stylesheet'"
     />
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="manifest" href="/manifest.json" />
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
     <script async>
@@ -81,6 +82,7 @@
               <picture>
                 <source srcset="images/menu_icon.webp" type="image/webp" />
                 <img
+                  alt="menu-icon"
                   src="images/menu_icon.png"
                   width="24"
                   height="24"
@@ -98,6 +100,7 @@
         <picture>
           <source srcset="images/Hero_Desktop.webp" type="image/webp" />
           <img
+            alt="Hero_Desktop"
             media="(min-width: 961px)"
             class="desktop"
             src="images/Hero_Desktop.webp"
@@ -110,7 +113,7 @@
             srcset="images/Hero_Mobile.webp"
             type="image/webp"
           />
-          <img class="mobile" src="images/Hero_Mobile.webp" />
+          <img alt="Hero_Mobile" class="mobile" src="images/Hero_Mobile.webp" />
         </picture>
         <picture>
           <source
@@ -118,7 +121,12 @@
             srcset="images/Hero_Tablet.webp"
             type="image/webp"
           />
-          <img class="tablet" src="images/Hero_Tablet.webp" loading="lazy" />
+          <img
+            alt="Hero_Tablet"
+            class="tablet"
+            src="images/Hero_Tablet.webp"
+            loading="lazy"
+          />
         </picture>
       </section>
 
