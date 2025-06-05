@@ -19,18 +19,6 @@
       media="(min-width: 961px)"
     />
     <link rel="stylesheet" href="/css/styles.css" />
-
-    <!-- Service Worker 등록 -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/service-worker.js")
-            .then((reg) => console.log("SW registered:", reg))
-            .catch((err) => console.error("SW registration failed:", err));
-        });
-      }
-    </script>
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
     <script async>
@@ -49,11 +37,12 @@
 
     <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
     <script
+      async
       type="text/javascript"
       src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
       charset="UTF-8"
     ></script>
-    <script type="text/javascript" charset="UTF-8">
+    <script async type="text/javascript" charset="UTF-8">
       window.addEventListener("DOMContentLoaded", function () {
         if (typeof cookieconsent !== "undefined") {
           cookieconsent.run({
@@ -125,8 +114,8 @@
             media="(min-width: 961px)"
             class="desktop"
             src="images/Hero_Desktop.webp"
-            width="1920"
-            height="1080"
+            width="1280"
+            height="720"
             style="object-fit: cover; aspect-ratio: 16/9"
             loading="lazy"
           />
@@ -137,7 +126,13 @@
             srcset="images/Hero_Mobile.webp"
             type="image/webp"
           />
-          <img alt="Hero_Mobile" class="mobile" src="images/Hero_Mobile.webp" />
+          <img
+            alt="Hero_Mobile"
+            class="mobile"
+            width="660"
+            height="660"
+            src="images/Hero_Mobile.webp"
+          />
         </picture>
         <picture>
           <source
@@ -150,9 +145,8 @@
             class="tablet"
             src="images/Hero_Tablet.webp"
             loading="lazy"
-            with="100%"
-            height="100%"
-            style="aspect-ratio: 16/9; object-fit: cover"
+            with="960"
+            height="540"
             fetchpriority="high"
           />
         </picture>
@@ -184,9 +178,6 @@
                 <img
                   src="images/vr1.jpg"
                   alt="product: Penom Case"
-                  width="100"
-                  height="100"
-                  style="aspect-ratio: 1/1; object-fit: cover"
                   loading="lazy"
                 />
               </picture>
@@ -208,9 +199,6 @@
                 <img
                   src="images/vr2.jpg"
                   alt="product: Noise Cancelling Headphone"
-                  width="100"
-                  height="100"
-                  style="aspect-ratio: 1/1; object-fit: cover"
                   loading="lazy"
                 />
               </picture>
@@ -232,9 +220,6 @@
                 <img
                   src="images/vr3.jpg"
                   alt="product: Canon Digital SLR EOS Rebel T6"
-                  width="100"
-                  height="100"
-                  style="aspect-ratio: 1/1; object-fit: cover"
                   loading="lazy"
                 />
               </picture>
